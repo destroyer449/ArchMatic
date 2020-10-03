@@ -13,57 +13,58 @@ PKGS=(
 
     # --- XORG Display Rendering
         'xorg'                  # Base Package
-        'xorg-drivers'          # Display Drivers 
+        'xorg-drivers'          # Display Drivers
         'xterm'                 # Terminal for TTY
-        'xorg-server'           # XOrg server
-        'xorg-apps'             # XOrg apps group
-        'xorg-xinit'            # XOrg init
-        'xorg-xinput'           # Xorg xinput
-        'mesa'                  # Open source version of OpenGL
+        'xorg-server'           # XOrg Server
+        'xorg-apps'             # XOrg Apps Group
+        'xorg-xinit'            # XOrg Init
+        'xorg-xinput'           # Xorg Xinput
+        'mesa'                  # Open Source Version of OpenGL
 
     # --- Setup Desktop
         'awesome'               # Awesome Desktop
-        'xfce4-power-manager'   # Power Manager 
-        'rofi'                  # Menu System
+        'xfce4-power-manager'   # Power Manager
+        'dmenu'                 # Menu System
         'picom'                 # Translucent Windows
         'xclip'                 # System Clipboard
         'gnome-polkit'          # Elevate Applications
         'lxappearance'          # Set System Themes
 
     # --- Login Display Manager
-        'lightdm'                   # Base Login Manager
-        'lightdm-webkit2-greeter'   # Framework for Awesome Login Themes
+        'lightdm'                       # Base Login Manager
+        'lightdm-webkit2-greeter'       # Framework for Awesome Login Themes
+        'lightdm-webkit-theme-litarvan' # Lightdm Login Theme - https://github.com/NoiSek/Aether#installation
 
     # --- Networking Setup
-        'wpa_supplicant'            # Key negotiation for WPA wireless networks
-        'dialog'                    # Enables shell scripts to trigger dialog boxex
+        'wpa_supplicant'            # Key negotiation for WPA Wireless Networks
+        'dialog'                    # Enables Shell Scripts To Trigger Dialog Boxex
         'openvpn'                   # Open VPN support
-        'networkmanager-openvpn'    # Open VPN plugin for NM
-        'network-manager-applet'    # System tray icon/utility for network connectivity
-        'libsecret'                 # Library for storing passwords
-    
+        'networkmanager-openvpn'    # Open VPN Plugin for NM
+        'network-manager-applet'    # System Tray Icon/Utility for Network Connectivity
+        'libsecret'                 # Library For Storing Passwords
+
     # --- Audio
         'alsa-utils'        # Advanced Linux Sound Architecture (ALSA) Components https://alsa.opensrc.org/
-        'alsa-plugins'      # ALSA plugins
-        'pulseaudio'        # Pulse Audio sound components
-        'pulseaudio-alsa'   # ALSA configuration for pulse audio
-        'pavucontrol'       # Pulse Audio volume control
-        'pnmixer'           # System tray volume control
+        'alsa-plugins'      # ALSA Plugins
+        'pulseaudio'        # Pulse Audio Sound Components
+        'pulseaudio-alsa'   # ALSA Configuration for Pulse Audio
+        'pavucontrol'       # Pulse Audio Volume Control
+        'pnmixer'           # System Tray Volume Control
 
     # --- Bluetooth
-        'bluez'                 # Daemons for the bluetooth protocol stack
-        'bluez-utils'           # Bluetooth development and debugging utilities
-        'bluez-firmware'        # Firmwares for Broadcom BCM203x and STLC2300 Bluetooth chips
-        'blueberry'             # Bluetooth configuration tool
-        'pulseaudio-bluetooth'  # Bluetooth support for PulseAudio
-    
+        'bluez'                 # Daemons for the Bluetooth Protocol Stack
+        'bluez-utils'           # Bluetooth Development and Debugging Utilities
+        'bluez-firmware'        # Firmwares for Broadcom BCM203x and STLC2300 Bluetooth Chips
+        'blueberry'             # Bluetooth Configuration Tool
+        'pulseaudio-bluetooth'  # Bluetooth Support for PulseAudio
+
     # --- Printers
-        'cups'                  # Open source printer drivers
-        'cups-pdf'              # PDF support for cups
-        'ghostscript'           # PostScript interpreter
-        'gsfonts'               # Adobe Postscript replacement fonts
+        'cups'                  # Open Source Printer Drivers
+        'cups-pdf'              # PDF Support For Cups
+        'ghostscript'           # PostScript Interpreter
+        'gsfonts'               # Adobe Postscript Replacement Fonts
         'hplip'                 # HP Drivers
-        'system-config-printer' # Printer setup  utility
+        'system-config-printer' # Printer Setup  Utility
 )
 
 for PKG in "${PKGS[@]}"; do

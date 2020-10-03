@@ -20,25 +20,24 @@ PKGS=(
     # UTILITIES -----------------------------------------------------------
 
     'i3lock-fancy'              # Screen locker
-    'synology-drive'            # Synology Drive
-    'freeoffice'                # Office Alternative
-    
-    # MEDIA ---------------------------------------------------------------
-
-    'screenkey'                 # Screencast your keypresses
-    'lbry-app-bin'              # LBRY Linux Application
+    'fzf'                       # Command Line Fuzzy-Finder
+    'dust-bin'                  # Rust Implementation of Disk Used
+    'dxvk-bin'                  # DirectX To Vulkan Layer
+    'universal-ctags-git'       # Improved CTags Implementation
+    'anaconda'                  # Python Env Management
+    'autojump'                  # File Navigation
 
     # COMMUNICATIONS ------------------------------------------------------
 
-    'brave-nightly-bin'         # Brave
-    
+    'brave-bin'                 # Brave
+
 
     # THEMES --------------------------------------------------------------
 
-    'lightdm-webkit-theme-aether'   # Lightdm Login Theme - https://github.com/NoiSek/Aether#installation
     'materia-gtk-theme'             # Desktop Theme
-    'papirus-icon-theme'            # Desktop Icons
-    'capitaine-cursors'             # Cursor Themes
+    'tela-icon-theme-git'           # Desktop Icons
+    'xcursor-oxygen'                # Cursor Themes
+    'nerd-fonts-complete'           # Nerd Fonts
 )
 
 
