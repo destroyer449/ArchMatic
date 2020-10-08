@@ -62,20 +62,15 @@ mount -t vfat "${DISK}1" /mnt/boot/
 echo "--------------------------------------"
 echo "-- Arch Install on Main Drive       --"
 echo "--------------------------------------"
-pacstrap /mnt base base-devel linux linux-firmware vim sudo --noconfirm --needed
+pacstrap /mnt base base-devel linux linux-firmware vim sudo grub efibootmgr --noconfirm --needed
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 
 echo "--------------------------------------"
 echo "-- Bootloader Systemd Installation  --"
 echo "--------------------------------------"
-bootctl install
-cat <<EOF > /boot/loader/entries/arch.conf
-title Arch Linux
-linux /vmlinuz-linux
-initrd  /initramfs-linux.img
-options root=${DISK}1 rw
-EOF
+grub-install --target=x64_64-efi --bootloader-id=GRUB /dev/sda
+grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "--------------------------------------"
 echo "--          Network Setup           --"
