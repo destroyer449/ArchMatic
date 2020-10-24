@@ -69,7 +69,7 @@ arch-chroot /mnt
 echo "--------------------------------------"
 echo "-- Bootloader Systemd Installation  --"
 echo "--------------------------------------"
-grub-install --target=x64_64-efi --bootloader-id=GRUB /dev/sda
+grub-install --target=x64_64-efi --bootloader-id=GRUB ${DISK}
 grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "--------------------------------------"
