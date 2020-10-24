@@ -17,12 +17,10 @@ PKGS=(
 
     # TERMINAL UTILITIES --------------------------------------------------
 
-    'bash-completion'       # Tab Completion for Bash
     'cronie'                # Cron Jobs
     'curl'                  # Remote Content Retrieval
     'file-roller'           # Archive Utility
-    'gtop'                  # System Monitoring Via Terminal
-    'gufw'                  # Firewall Manager
+    'firewalld'             # Firewall Manager
     'htop'                  # Process Viewer
     'neofetch'              # Shows System Info When You Launch Terminal
     'ntp'                   # Network Time Protocol To Set Time Via Network.
@@ -36,7 +34,6 @@ PKGS=(
     'wget'                  # Remote Content Retrieval
     'alacritty'             # Terminal Emulator
     'neovim'                # Terminal Editor
-    'zenity'                # Display Graphical Dialog Boxes Via Shell Scripts
     'zip'                   # Zip Compression Program
     'zsh'                   # ZSH Shell
     'zsh-completions'       # Tab Completion for ZSH
@@ -49,16 +46,14 @@ PKGS=(
     'exfat-utils'           # Mount exFat Drives
     'gvfs-mtp'              # Read MTP Connected Systems
     'gvfs-smb'              # More File System Stuff
-    'ntfs-3g'               # Open Source Implementation of NTFS File System
     'parted'                # Disk Utility
     'samba'                 # Samba File Sharing
     'smartmontools'         # Disk Monitoring
     'smbclient'             # SMB Connection
-    'xfsprogs'              # XFS Support
 
     # GENERAL UTILITIES ---------------------------------------------------
 
-    'flameshot'             # Screenshots
+    'scrot'                 # Screenshots
     'freerdp'               # RDP Connections
     'libvncserver'          # VNC Connections
     'pcmanfm'               # Filesystem Browser
@@ -74,13 +69,13 @@ PKGS=(
     'gcc'                   # C/C++ Compiler
     'gradle'                # Java Build Manager
     'glibc'                 # C Libraries
-    'nodejs'                # Javascript Runtime Environment
-    'npm'                   # Node Package Manager
     'python'                # Scripting Language
     'python-pip'            # Python Package Manager
-    'yarn'                  # Dependency Management (Hyper Needs This)
-    'ripgrep'               # Better Implementation of Grep
+    'ripgrep'               # Rust Implementation of Grep
+    'fd'                    # Rust Implementation of Find
+    'fzf'                   # Command Line Fuzzy-Finder
     'hub'                   # Github CLI
+    'emacs'                 # GNU Editor MACroS ( doom emacs distrobution )
 
     # MEDIA ---------------------------------------------------------------
 
@@ -90,7 +85,7 @@ PKGS=(
     # GRAPHICS AND DESIGN -------------------------------------------------
 
     'gimp'                  # GNU Image Manipulation Program
-    'blender'               # Opensource Modeling and Sculpting Software
+    'blender'               # Open Source Modeling and Sculpting Software
 
     # PRODUCTIVITY --------------------------------------------------------
 

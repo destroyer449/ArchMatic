@@ -19,25 +19,22 @@ PKGS=(
 
     # UTILITIES -----------------------------------------------------------
 
-    'i3lock-fancy'              # Screen locker
-    'fzf'                       # Command Line Fuzzy-Finder
     'dust-bin'                  # Rust Implementation of Disk Used
     'dxvk-bin'                  # DirectX To Vulkan Layer
     'universal-ctags-git'       # Improved CTags Implementation
-    'anaconda'                  # Python Env Management
     'autojump'                  # File Navigation
 
     # COMMUNICATIONS ------------------------------------------------------
 
-    'brave-bin'                 # Brave
+    'brave-bin'                 # Brave browser
 
 
     # THEMES --------------------------------------------------------------
 
-    'materia-gtk-theme'             # Desktop Theme
+    'orchis-theme-git'              # Desktop Theme
     'tela-icon-theme-git'           # Desktop Icons
     'xcursor-oxygen'                # Cursor Themes
-    'nerd-fonts-complete'           # Nerd Fonts
+    'nerd-fonts-fira-code'          # Nerd Fonts
 )
 
 

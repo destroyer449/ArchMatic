@@ -14,7 +14,6 @@ PKGS=(
     # --- XORG Display Rendering
         'xorg'                  # Base Package
         'xorg-drivers'          # Display Drivers
-        'xterm'                 # Terminal for TTY
         'xorg-server'           # XOrg Server
         'xorg-apps'             # XOrg Apps Group
         'xorg-xinit'            # XOrg Init
@@ -27,19 +26,20 @@ PKGS=(
         'dmenu'                 # Menu System
         'picom'                 # Translucent Windows
         'xclip'                 # System Clipboard
-        'gnome-polkit'          # Elevate Applications
+        'lxsession'             # Elevate Applications
         'lxappearance'          # Set System Themes
 
     # --- Login Display Manager
         'lightdm'                       # Base Login Manager
+        'light-locker'                  # LightDM screen locker
         'lightdm-webkit2-greeter'       # Framework for Awesome Login Themes
         'lightdm-webkit-theme-litarvan' # Lightdm Login Theme - https://github.com/NoiSek/Aether#installation
 
     # --- Networking Setup
         'wpa_supplicant'            # Key negotiation for WPA Wireless Networks
         'dialog'                    # Enables Shell Scripts To Trigger Dialog Boxex
-        'openvpn'                   # Open VPN support
-        'networkmanager-openvpn'    # Open VPN Plugin for NM
+        # 'openvpn'                   # Open VPN support
+        # 'networkmanager-openvpn'    # Open VPN Plugin for NM
         'network-manager-applet'    # System Tray Icon/Utility for Network Connectivity
         'libsecret'                 # Library For Storing Passwords
 
