@@ -21,8 +21,9 @@ PKGS=(
 
     'dust-bin'                  # Rust Implementation of Disk Used
     'dxvk-bin'                  # DirectX To Vulkan Layer
-    'universal-ctags-git'       # Improved CTags Implementation
+    'rtags'                     # Improved CTags Implementation
     'autojump'                  # File Navigation
+    'mu'                        # Mu email indexer and Mu4e client
 
     # COMMUNICATIONS ------------------------------------------------------
 
@@ -35,6 +36,9 @@ PKGS=(
     'tela-icon-theme-git'           # Desktop Icons
     'xcursor-oxygen'                # Cursor Themes
     'nerd-fonts-fira-code'          # Nerd Fonts
+    'nerd-fonts-meslo'              # Nerd Fonts
+    'nerd-fonts-hack'               # Nerd Fonts
+    'nerd-fonts-dejavu-complete'    # Nerd Fonts
 )
 
 

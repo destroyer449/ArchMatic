@@ -23,7 +23,6 @@ PKGS=(
     # --- Setup Desktop
         'awesome'               # Awesome Desktop
         'xfce4-power-manager'   # Power Manager
-        'dmenu'                 # Menu System
         'picom'                 # Translucent Windows
         'xclip'                 # System Clipboard
         'lxsession'             # Elevate Applications

@@ -37,6 +37,7 @@ PKGS=(
     'zip'                   # Zip Compression Program
     'zsh'                   # ZSH Shell
     'zsh-completions'       # Tab Completion for ZSH
+    'tmux'                  # Terminal Multiplexer
 
     # DISK UTILITIES ------------------------------------------------------
 
@@ -84,6 +85,7 @@ PKGS=(
 
     # GRAPHICS AND DESIGN -------------------------------------------------
 
+    'inkscape'              # Vector Graphics Manipulation
     'gimp'                  # GNU Image Manipulation Program
     'blender'               # Open Source Modeling and Sculpting Software
 
