@@ -7,7 +7,7 @@
 #  Arch Linux Post Install Setup and Config
 #-------------------------------------------------------------------------
 
-echo -e "\nFINAL SETUP AND CONFIGURATION"
+echo -e "\nFINAL SYSTEM TWEAKS"
 
 # ------------------------------------------------------------------------
 
