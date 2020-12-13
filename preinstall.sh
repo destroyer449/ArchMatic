@@ -11,14 +11,14 @@ echo "-------------------------------------------------"
 echo "Setting up mirrors for optimal download - US Only"
 echo "-------------------------------------------------"
 timedatectl set-ntp true
-pacman -S --noconfirm pacman-contrib
+pacman -Syyy && pacman -S --noconfirm pacman-contrib reflector
 mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-curl -s "https://www.archlinux.org/mirrorlist/?country=US&protocol=https&use_mirror_status=on" | sed -e 's/^#Server/Server/' -e '/^#/d' | rankmirrors -n 5 - > /etc/pacman.d/mirrorlist
+reflector -c America -a 6 --sort rate --save /etc/pacman.d/mirrorlist
 
 
 
 echo -e "\nInstalling prereqs...\n$HR"
-pacman -S --noconfirm gptfdisk btrfs-progs
+pacman -S --noconfirm btrfs-progs
 
 echo "-------------------------------------------------"
 echo "-------select your disk to format----------------"
@@ -30,52 +30,54 @@ echo "--------------------------------------"
 echo -e "\nFormatting disk...\n$HR"
 echo "--------------------------------------"
 
-# disk prep
-sgdisk -Z ${DISK} # zap all on disk
-sgdisk -a 2048 -o ${DISK} # new gpt disk 2048 alignment
-
-# create partitions
-sgdisk -n 1:0:+1000M ${DISK} # partition 1 (UEFI SYS), default start block, 512MB
-sgdisk -n 2:0:0     ${DISK} # partition 2 (Root), default start, remaining
-
-# set partition types
-sgdisk -t 1:ef00 ${DISK}
-sgdisk -t 2:8300 ${DISK}
-
-# label partitions
-sgdisk -c 1:"UEFISYS" ${DISK}
-sgdisk -c 2:"ROOT" ${DISK}
+# make partitions
+parted "${DISK}" -- mklabel gpt
+parted "${DISK}" -- mkpart ESP fat32 1MiB 400MiB 
+parted "${DISK}" -- set 1 esp on
+parted "${DISK}" -- mkpart primary linux-swap -400MiB 4GiB
+parted "${DISK}" -- mkpart primary 4GiB 100% 
 
 # make filesystems
 echo -e "\nCreating Filesystems...\n$HR"
 
-mkfs.vfat -F32 -n "UEFISYS" "${DISK}1"
-mkfs.ext4 -L "ROOT" "${DISK}2"
+mkfs.fat -F32 "${DISK}1"
+mkfs.btrfs -L "ROOT" "${DISK}3"
+mkswap "${DISK}2"
+swapon "${DISK}2"
 
 # mount target
 mkdir /mnt
-mount -t ext4 "${DISK}2" /mnt
-mkdir /mnt/boot
-mkdir /mnt/boot/efi
-mount -t vfat "${DISK}1" /mnt/boot/
+mount "${DISK}3" /mnt
+btrfs subvolume create /mnt/@
+btrfs subvolume create /mnt/@home
+btrfs subvolume create /mnt/@var
+btrfs subvolume create /mnt/@snapshots
+umount /mnt
+mount -o noatime,compress=lzo,space_cache,subvol=@ "${DISK}3" /mnt
+mkdir -p /mnt/{boot/EFI,home,var,.snapshots}
+mount -o noatime,compress=lzo,space_cache,subvol=@home "${DISK}3" /mnt/home
+mount -o noatime,compress=lzo,space_cache,subvol=@var "${DISK}3" /mnt/var
+mount -o noatime,compress=lzo,space_cache,subvol=@snapshots "${DISK}3" /mnt/.snapshots
+mount "${DISK}1" /mnt/boot/EFI
 
 echo "--------------------------------------"
 echo "-- Arch Install on Main Drive       --"
 echo "--------------------------------------"
-pacstrap /mnt base base-devel linux linux-firmware vim sudo grub efibootmgr --noconfirm --needed
+pacstrap /mnt base base-devel linux-zen linux-zen-headers linux-lts linux-lts-headers linux-firmware neovim snapper --noconfirm --needed
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 
 echo "--------------------------------------"
-echo "-- Bootloader Systemd Installation  --"
+echo "-- Bootloader GRUB Installation  --"
 echo "--------------------------------------"
+pacman -S grub grub-btrfs efibootmgr os-prober mtools dosfstools
 grub-install --target=x64_64-efi --bootloader-id=GRUB ${DISK}
 grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "--------------------------------------"
 echo "--          Network Setup           --"
 echo "--------------------------------------"
-pacman -S networkmanager dhclient --noconfirm --needed
+pacman -S networkmanager network-manager-applet wpa_supplicant dialog --noconfirm --needed
 systemctl enable --now NetworkManager
 
 echo "--------------------------------------"
