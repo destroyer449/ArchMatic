@@ -11,7 +11,7 @@ echo "-------------------------------------------------"
 echo "Setting up mirrors for optimal download - US Only"
 echo "-------------------------------------------------"
 timedatectl set-ntp true
-pacman -Syyy && pacman -S --noconfirm pacman-contrib 
+pacman -Syyy && pacman -S --noconfirm pacman-contrib
 pacman -S pacman-contrib --noconfirm
 pacman -S reflector
 mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
@@ -32,10 +32,10 @@ echo "--------------------------------------"
 
 # make partitions
 parted "${DISK}" -- mklabel gpt
-parted "${DISK}" -- mkpart ESP fat32 1MiB 400MiB 
+parted "${DISK}" -- mkpart ESP fat32 1MiB 400MiB
 parted "${DISK}" -- set 1 esp on
 parted "${DISK}" -- mkpart primary linux-swap -400MiB 4GiB
-parted "${DISK}" -- mkpart primary 4GiB 100% 
+parted "${DISK}" -- mkpart primary 4GiB 100%
 
 # make filesystems
 echo -e "\nCreating Filesystems...\n$HR"
