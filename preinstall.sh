@@ -11,11 +11,11 @@ echo "-------------------------------------------------"
 echo "Setting up mirrors for optimal download - US Only"
 echo "-------------------------------------------------"
 timedatectl set-ntp true
-pacman -Syyy && pacman -S --noconfirm pacman-contrib reflector
+pacman -Syyy && pacman -S --noconfirm pacman-contrib 
+pacman -S pacman-contrib --noconfirm
+pacman -S reflector
 mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 reflector -c America -a 6 --sort rate --save /etc/pacman.d/mirrorlist
-
-
 
 echo -e "\nInstalling prereqs...\n$HR"
 pacman -S --noconfirm btrfs-progs
