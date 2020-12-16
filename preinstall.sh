@@ -13,7 +13,7 @@ echo "-------------------------------------------------"
 timedatectl set-ntp true
 pacman -Syyy && pacman -S --noconfirm pacman-contrib
 pacman -S pacman-contrib --noconfirm
-pacman -S reflector
+pacman -S reflector --noconfirm
 mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 reflector -c America -a 6 --sort rate --save /etc/pacman.d/mirrorlist
 
@@ -34,7 +34,7 @@ echo "--------------------------------------"
 parted "${DISK}" -- mklabel gpt
 parted "${DISK}" -- mkpart ESP fat32 1MiB 400MiB
 parted "${DISK}" -- set 1 esp on
-parted "${DISK}" -- mkpart primary linux-swap -400MiB 4GiB
+parted "${DISK}" -- mkpart primary linux-swap 400MiB 4GiB
 parted "${DISK}" -- mkpart primary 4GiB 100%
 
 # make filesystems
