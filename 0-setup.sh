@@ -9,21 +9,18 @@
 
 if ! source install.conf; then
     read -p "Please enter hostname:" hostname
-
     read -p "Please enter username:" username
 
-    read -ps "Please enter password:" password
-
-    read -sp "Please repeat password:" password2
-
-    # Check both passwords match
-    if [ "$password" != "$password2" ]; then
-        echo "Passwords do not match"
-        exit 1
-    fi
     printf "hostname="$hostname"\n" >> "install.conf"
     printf "username="$username"\n" >> "install.conf"
-    printf "password="$password"\n" >> "install.conf"
+
+    echo $hostname >> /etc/hostname
+    echo "127.0.0.1     localhost\n" >> /etc/hosts
+    echo "::1     localhost\n" >> /etc/hosts
+    echo "127.0.0.1     "$hostname".localdomain     "$hostname"\n" >> /etc/hosts
+
+    useradd -mG wheel $username
+    passwd $username
 fi
 
 echo "-------------------------------------------------"
@@ -44,6 +41,8 @@ sudo sed -i 's/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T $nc -z -)/g' /etc/ma
 echo "-------------------------------------------------"
 echo "       Setup Language to US and set locale       "
 echo "-------------------------------------------------"
+ln -sf /usr/share/zoneinfo/America/Denver /etc/localtime
+hwclock -systohc
 sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 locale-gen
 timedatectl --no-ask-password set-timezone America/Denver
