@@ -65,25 +65,24 @@ echo "-- Arch Install on Main Drive       --"
 echo "--------------------------------------"
 pacstrap /mnt base base-devel linux-zen linux-zen-headers linux-lts linux-lts-headers linux-firmware neovim snapper --noconfirm --needed
 genfstab -U /mnt >> /mnt/etc/fstab
-arch-chroot /mnt
 
-arch-chroot /mnt echo "--------------------------------------"
-arch-chroot /mnt echo "-- Bootloader GRUB Installation  --"
-arch-chroot /mnt echo "--------------------------------------"
-arch-chroot /mnt pacman -S grub grub-btrfs efibootmgr os-prober mtools dosfstools
-arch-chroot /mnt grub-install --target=x64_64-efi --bootloader-id=GRUB ${DISK}
+echo "--------------------------------------"
+echo "-- Bootloader GRUB Installation  --"
+echo "--------------------------------------"
+arch-chroot /mnt pacman -S grub grub-btrfs efibootmgr os-prober mtools dosfstools --noconfirm --needed
+arch-chroot /mnt grub-install --target=x86_64-efi --bootloader-id=GRUB ${DISK}
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
-arch-chroot /mnt 
-arch-chroot /mnt echo "--------------------------------------"
-arch-chroot /mnt echo "--          Network Setup           --"
-arch-chroot /mnt echo "--------------------------------------"
+
+echo "--------------------------------------"
+echo "--          Network Setup           --"
+echo "--------------------------------------"
 arch-chroot /mnt pacman -S networkmanager network-manager-applet wpa_supplicant dialog --noconfirm --needed
 arch-chroot /mnt systemctl enable --now NetworkManager
-arch-chroot /mnt 
-arch-chroot /mnt echo "--------------------------------------"
-arch-chroot /mnt echo "--      Set Password for Root       --"
-arch-chroot /mnt echo "--------------------------------------"
-arch-chroot /mnt echo "Enter password for root user: "
+
+echo "--------------------------------------"
+echo "--      Set Password for Root       --"
+echo "--------------------------------------"
+echo "Enter password for root user: "
 arch-chroot /mnt passwd root
 
 umount -R /mnt
