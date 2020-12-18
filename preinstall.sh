@@ -70,7 +70,7 @@ echo "--------------------------------------"
 echo "-- Bootloader GRUB Installation  --"
 echo "--------------------------------------"
 arch-chroot /mnt pacman -S grub grub-btrfs efibootmgr os-prober mtools dosfstools --noconfirm --needed
-arch-chroot /mnt grub-install --target=x86_64-efi --bootloader-id=GRUB ${DISK}
+arch-chroot /mnt grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/EFI ${DISK}
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "--------------------------------------"
