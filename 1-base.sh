@@ -16,14 +16,14 @@ PKGS=(
         'xorg-drivers'          # Display Drivers
         'xorg-server'           # XOrg Server
         'xorg-apps'             # XOrg Apps Group
-        'xorg-xinit'            # XOrg Init
         'xorg-xinput'           # Xorg Xinput
         'mesa'                  # Open Source Version of OpenGL
+        'xdg-user-dis'          # Set Up XDG Directories
 
     # --- Setup Desktop
-        'awesome'               # Awesome Desktop
+        'xmonad'                # Xmonad Window Manager
+        'trayer'                # Sys Tray
         'xfce4-power-manager'   # Power Manager
-        'picom'                 # Translucent Windows
         'xclip'                 # System Clipboard
         'lxsession'             # Elevate Applications
         'lxappearance'          # Set System Themes
@@ -31,14 +31,11 @@ PKGS=(
     # --- Login Display Manager
         'lightdm'                       # Base Login Manager
         'light-locker'                  # LightDM screen locker
-        'lightdm-webkit2-greeter'       # Framework for Awesome Login Themes
-        'lightdm-webkit-theme-litarvan' # Lightdm Login Theme - https://github.com/NoiSek/Aether#installation
 
     # --- Networking Setup
         'wpa_supplicant'            # Key negotiation for WPA Wireless Networks
+        'wireless_tools'            # Wireless tools
         'dialog'                    # Enables Shell Scripts To Trigger Dialog Boxex
-        # 'openvpn'                   # Open VPN support
-        # 'networkmanager-openvpn'    # Open VPN Plugin for NM
         'network-manager-applet'    # System Tray Icon/Utility for Network Connectivity
         'libsecret'                 # Library For Storing Passwords
 
@@ -64,6 +61,8 @@ PKGS=(
         'gsfonts'               # Adobe Postscript Replacement Fonts
         'hplip'                 # HP Drivers
         'system-config-printer' # Printer Setup  Utility
+        'avahi'                 # Wireless Printer Resolution
+        'nss-mdns'              # Local Domain Resolution
 )
 
 for PKG in "${PKGS[@]}"; do
