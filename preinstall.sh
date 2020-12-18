@@ -67,26 +67,25 @@ pacstrap /mnt base base-devel linux-zen linux-zen-headers linux-lts linux-lts-he
 genfstab -U /mnt >> /mnt/etc/fstab
 arch-chroot /mnt
 
-echo "--------------------------------------"
-echo "-- Bootloader GRUB Installation  --"
-echo "--------------------------------------"
-pacman -S grub grub-btrfs efibootmgr os-prober mtools dosfstools
-grub-install --target=x64_64-efi --bootloader-id=GRUB ${DISK}
-grub-mkconfig -o /boot/grub/grub.cfg
+arch-chroot /mnt echo "--------------------------------------"
+arch-chroot /mnt echo "-- Bootloader GRUB Installation  --"
+arch-chroot /mnt echo "--------------------------------------"
+arch-chroot /mnt pacman -S grub grub-btrfs efibootmgr os-prober mtools dosfstools
+arch-chroot /mnt grub-install --target=x64_64-efi --bootloader-id=GRUB ${DISK}
+arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
+arch-chroot /mnt 
+arch-chroot /mnt echo "--------------------------------------"
+arch-chroot /mnt echo "--          Network Setup           --"
+arch-chroot /mnt echo "--------------------------------------"
+arch-chroot /mnt pacman -S networkmanager network-manager-applet wpa_supplicant dialog --noconfirm --needed
+arch-chroot /mnt systemctl enable --now NetworkManager
+arch-chroot /mnt 
+arch-chroot /mnt echo "--------------------------------------"
+arch-chroot /mnt echo "--      Set Password for Root       --"
+arch-chroot /mnt echo "--------------------------------------"
+arch-chroot /mnt echo "Enter password for root user: "
+arch-chroot /mnt passwd root
 
-echo "--------------------------------------"
-echo "--          Network Setup           --"
-echo "--------------------------------------"
-pacman -S networkmanager network-manager-applet wpa_supplicant dialog --noconfirm --needed
-systemctl enable --now NetworkManager
-
-echo "--------------------------------------"
-echo "--      Set Password for Root       --"
-echo "--------------------------------------"
-echo "Enter password for root user: "
-passwd root
-
-exit
 umount -R /mnt
 
 echo "--------------------------------------"
