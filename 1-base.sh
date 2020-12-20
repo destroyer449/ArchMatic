@@ -19,6 +19,7 @@ PKGS=(
         'xorg-xinput'           # Xorg Xinput
         'mesa'                  # Open Source Version of OpenGL
         'xdg-user-dis'          # Set Up XDG Directories
+        'intel-ucode'           # Intel Specific Stuff
 
     # --- Setup Desktop
         'xmonad'                # Xmonad Window Manager

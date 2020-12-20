@@ -21,21 +21,25 @@ PKGS=(
 
     'dust-bin'                  # Rust Implementation of Disk Used
     'dxvk-bin'                  # DirectX To Vulkan Layer
-    'rtags'                     # Improved CTags Implementation
-    'autojump'                  # File Navigation
-    'mu'                        # Mu email indexer and Mu4e client
+    'mu-git'                    # Mu email indexer and Mu4e client
+    'picom-jonaburg-git'        # Better Verison of Picom With Animations
+    'font-preview'              # Small BASH Script To View Fonts
+    'redshift-gtk-git'          # Tints Screen Red At Night
 
-    # COMMUNICATIONS ------------------------------------------------------
+    # DEVELOPMENT ---------------------------------------------------------
 
-    'brave-bin'                 # Brave browser
-
+    'neovim-git'                    # NeoViM 0.5 With LSP
+    'emacs-native-comp-git'         # GCCEMACS
+    'autojump'                      # File Navigation
+    'haskell-language-server-bin'   # Haskell Language Server
 
     # THEMES --------------------------------------------------------------
 
+    'lightdm-slick-greeter'         # Login Screen Theme
     'orchis-theme-git'              # Desktop Theme
     'tela-icon-theme-git'           # Desktop Icons
     'xcursor-oxygen'                # Cursor Themes
-    'nerd-fonts-fira-code'          # Nerd Fonts
+    'nerd-fonts-jetbrains-mono'     # Nerd Fonts
     'nerd-fonts-meslo'              # Nerd Fonts
     'nerd-fonts-hack'               # Nerd Fonts
     'nerd-fonts-dejavu-complete'    # Nerd Fonts
