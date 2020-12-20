@@ -39,11 +39,11 @@ cd ArchMatic
 ---
 
 *** System Description
-This runs Awesome Window Manager using my Distrotube inspired theme found at [[https://github.com/destroyer449/dotfiles/][Dotfiles]]
+This runs the Xmonad Window Manager using my Distrotube inspired configuration found at [[https://github.com/destroyer449/dotfiles/][Dotfiles]]
 
 To boot I use =GRUB2= because it is fairly fast, well documented, has widespread use,and works on most devices
 
-I also install the LTS Kernel along side the rolling one, and configure my bootloader to offer both as a choice during startup. This enables me to switch kernels in the event of a problem with the rolling one.
+I also install the LTS Kernel along side the zen-kernel one, and configure my bootloader to offer both as a choice during startup. This enables me to switch kernels in the event of a problem with the rolling one.
 
 This will also clone my dotfiles repo and configure most of the basic apps to use these configs. This will also offer a choice between a couple different text editors.
 *** Troubleshooting Arch Linux
@@ -53,7 +53,7 @@ This will also clone my dotfiles repo and configure most of the basic apps to us
 **** No Wifi
 
 #+BEGIN_SRC bash
-sudo wifi-menu
+sudo iwctl
 #+END_SRC
 
 **** Initialize Xorg:
