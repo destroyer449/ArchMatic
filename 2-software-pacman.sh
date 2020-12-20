@@ -62,7 +62,7 @@ PKGS=(
     'nitrogen'              # Wallpaper Changer
     'dunst'                 # Notification Server
     'isync'                 # Syncs Mail
-    'qalculate-gtl'         # Calculator
+    'qalculate-gtk'         # Calculator
 
     # DEVELOPMENT ---------------------------------------------------------
 
@@ -80,7 +80,7 @@ PKGS=(
     'exa'                   # Rust Implementation of Ls
     'fzf'                   # Command Line Fuzzy-Finder
     'hub'                   # Github CLI
-    'languagetool'          # Opensource Language Checker  
+    'languagetool'          # Opensource Language Checker
 
     # MEDIA ---------------------------------------------------------------
 
