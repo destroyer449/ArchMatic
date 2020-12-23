@@ -11,11 +11,8 @@ echo "-------------------------------------------------"
 echo "Setting up mirrors for optimal download - US Only"
 echo "-------------------------------------------------"
 timedatectl set-ntp true
-pacman -Syyy && pacman -S --noconfirm pacman-contrib
+pacman -Syyy
 pacman -S pacman-contrib --noconfirm
-pacman -S reflector --noconfirm
-mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-reflector -c America -a 6 --sort rate --save /etc/pacman.d/mirrorlist
 
 echo -e "\nInstalling prereqs...\n$HR"
 pacman -S --noconfirm btrfs-progs
@@ -70,7 +67,7 @@ echo "--------------------------------------"
 echo "-- Bootloader GRUB Installation  --"
 echo "--------------------------------------"
 arch-chroot /mnt pacman -S grub grub-btrfs efibootmgr os-prober mtools dosfstools --noconfirm --needed
-arch-chroot /mnt grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/EFI ${DISK}
+arch-chroot /mnt grub-install --target=x86_64-efi --bootloader-id=GRUB --efi-directory=/boot/EFI "${DISK}"
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "--------------------------------------"
